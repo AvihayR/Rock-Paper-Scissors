@@ -70,10 +70,25 @@ function game(){
 
         console.log(score)
     }
+    return score
     };
 
 
-game()
+
+//victory() func - function that runs game() func, then runs a switch statement to find True or False,
+//if one of the cases is true, it returns the value equal to the situation / specific case. 
+function victory(){
+    finalScore = game();
+    switch(true){
+        case finalScore.player > finalScore.computer:{return "You are Victorious!🎉"}
+        case finalScore.player < finalScore.computer:{return "Defeat, Don't let this happen again. 👎"}
+        case finalScore.player === finalScore.computer:{return "Total Tie! 🥊"} 
+        return
+    }
+};
+
+console.log(victory());
+    
 
 
 
