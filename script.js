@@ -1,3 +1,12 @@
+//UI: 
+const scorePara = document.querySelector(".score-p");
+const choicePara = document.querySelector(".choices-p");
+const buttons = document.querySelectorAll("button");
+buttons.forEach(btn => {
+    btn.addEventListener('click', playRound);
+});
+
+
 //computer object - stores array named choice with all pc's possibilities
 let computer = {
     choice: ['rock','paper','scissors']
@@ -6,89 +15,52 @@ let computer = {
 //getComputerChoice - a func that generates a random number, multiplies it by computer.choice length, and floors it to a round int
 function getComputerChoice(){
     let randomChoice = Math.floor(Math.random() * computer.choice.length);
-    console.log(`Computer's choice: ${computer.choice[randomChoice]}`)
     return (computer.choice[randomChoice]);
 }
 
-//playRound - a func that takes two params - playerSelection & computerSelection,
-    //prompts an input pop-up window for the user then converts input into lowerCase. 
-    //checks to see who's the winner and returns the string that declare if player won or lost.
+let score = {
+    player: 0 ,
+    computer: 0,
+    round: 0
+};
+
+function counter(num){
+    if(num > 5) {
+        buttons.forEach(btn => {
+            btn.removeEventListener('click',playRound);
+        })
+    }};
+
 function playRound(playerSelection,computerSelection){
-    playerSelection = prompt('Choose your weapon! (Rock,Paper or Scissors only.)').toLowerCase();
+    ++score.round
+    playerSelection = this.value;
     computerSelection = getComputerChoice();
     switch(computerSelection){
         case 'rock':{
-            if (playerSelection == 'rock'){return "It's a Tie! - Rock vs. Rock"}
-            else if(playerSelection == 'paper'){return "You Win! - Paper beats Rock!"}
-            else if(playerSelection == 'scissors'){return "You Lose! - Rock beats Scissors. "} 
-            else{return "Error, not a valid input."}
-            return
+            if (playerSelection == 'rock'){ "It's a Tie! - Rock vs. Rock"}
+            else if(playerSelection == 'paper'){ ++score.player}
+            else if(playerSelection == 'scissors'){ ++score.computer} 
+            else{ "Error, not a valid input."}
+            
         };
         break;
         case 'paper':{
-            if(playerSelection == 'rock'){return 'You Lose! - Paper beats Rock.'}
-            else if(playerSelection == 'paper'){return "It's a Tie! - Paper vs. Paper"}
-            else if(playerSelection == 'scissors'){return "You Win! - Scissors cuts Paper!"}
+            if(playerSelection == 'rock'){ ++score.computer}
+            else if(playerSelection == 'paper'){ "It's a Tie! - Paper vs. Paper"}
+            else if(playerSelection == 'scissors'){ ++score.player}
             else{return "Error, not a valid input."}
-            return
         };
         break;
         case 'scissors':{
-            if(playerSelection == 'rock'){return 'You Win! - Rock breaks Scissors!'}
-            else if(playerSelection == 'paper'){return 'You Lose! - Scissors cuts Paper.'}
-            else if(playerSelection == 'scissors'){return "It's a Tie! - Scissors vs. Scissors"}
+            if(playerSelection == 'rock'){ ++score.player}
+            else if(playerSelection == 'paper'){ ++score.computer}
+            else if(playerSelection == 'scissors'){ "It's a Tie! - Scissors vs. Scissors"}
             else{return "Error, not a valid input."}
-            return
         };
         break
-        case null || undefined:{return 'Error!'};
-    }
-}
-
-
-//game() func - first creates an object with two vars set to 0's,
-//then creates a for loop, with a counter to run 5 times, that for loop body contains:
-//var that holds the values that comes back from playRound() func, 
-//then determines which var in score object to score, checking via str.includes() built-in func, 
-//ex: if includes('win'){++score.player}
-
-
-function game(){
-    let score = {
-        player: 0 ,
-        computer: 0
-    };
-    for(let count = 0; count < 5; count++){
-
-        let round = playRound()
-        console.log(round)
-
-        if(round.includes('Win')){++score.player}
-        else if(round.includes('Lose')){++score.computer}
-        else if(round.includes('Tie')){++score.computer 
-            ++score.player};
-
-        console.log(score)
-    }
-    return score
-    };
-
-
-
-//victory() func - function that runs game() func, then runs a switch statement to find True or False,
-//if one of the cases is true, it returns the value equal to the situation / specific case. 
-function victory(){
-    finalScore = game();
-    switch(true){
-        case finalScore.player > finalScore.computer:{return "You are Victorious!🎉"}
-        case finalScore.player < finalScore.computer:{return "Defeat, Don't let this happen again. 👎"}
-        case finalScore.player === finalScore.computer:{return "Total Tie! 🥊"} 
-        return
-    }
+        case null || undefined:{'Error!'};
+    }; 
+    choicePara.textContent = `${playerSelection.toUpperCase()}` + ' vs. '+ `${computerSelection.toUpperCase()}`;
+    scorePara.textContent = `Your Score: ${score.player}` + " " + `Computer's score: ${score.computer}`;
+    counter(score.round);
 };
-
-console.log(victory());
-    
-
-
-
