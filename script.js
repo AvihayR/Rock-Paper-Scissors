@@ -24,12 +24,25 @@ let score = {
     round: 0
 };
 
-function counter(num){
-    if(num > 5) {
+let isEndOfGame = false;
+
+function counter(num1,num2){
+    if(num1 >= 5 || num2 >= 5) {
         buttons.forEach(btn => {
             btn.removeEventListener('click',playRound);
-        })
+        return isEndOfGame = true;
+    })
     }};
+
+function determineWin(v){
+    if (v == true){
+        if(score.player > score.computer){
+            alert('You win!🎉')}
+            else if(score.player < score.computer){
+                alert('You lose, Better luck next time!🤞')
+            }
+    };
+};
 
 function playRound(playerSelection,computerSelection){
     ++score.round
@@ -37,30 +50,31 @@ function playRound(playerSelection,computerSelection){
     computerSelection = getComputerChoice();
     switch(computerSelection){
         case 'rock':{
-            if (playerSelection == 'rock'){ "It's a Tie! - Rock vs. Rock"}
-            else if(playerSelection == 'paper'){ ++score.player}
-            else if(playerSelection == 'scissors'){ ++score.computer} 
+            if (playerSelection == 'rock'){ choicePara.textContent = "It's a tie! - Rock vs. Rock.. 😐"}
+            else if(playerSelection == 'paper'){ ++score.player , choicePara.textContent = "You win! Paper wraps Rock! 💪"}
+            else if(playerSelection == 'scissors'){ ++score.computer, choicePara.textContent = "You lose! Rock breaks Scissors. 😭"} 
             else{ "Error, not a valid input."}
             
         };
         break;
         case 'paper':{
-            if(playerSelection == 'rock'){ ++score.computer}
-            else if(playerSelection == 'paper'){ "It's a Tie! - Paper vs. Paper"}
-            else if(playerSelection == 'scissors'){ ++score.player}
+            if(playerSelection == 'rock'){ ++score.computer,choicePara.textContent = "You lose! Paper wraps Rock. 😭"}
+            else if(playerSelection == 'paper'){ choicePara.textContent = "It's a tie! - Paper vs. Paper.. 😐"}
+            else if(playerSelection == 'scissors'){ ++score.player, choicePara.textContent = "You win! Scissors snips Paper! 💪"}
             else{return "Error, not a valid input."}
         };
         break;
         case 'scissors':{
-            if(playerSelection == 'rock'){ ++score.player}
-            else if(playerSelection == 'paper'){ ++score.computer}
-            else if(playerSelection == 'scissors'){ "It's a Tie! - Scissors vs. Scissors"}
+            if(playerSelection == 'rock'){ ++score.player, choicePara.textContent = "You win! Rock breaks Scissors! 💪"}
+            else if(playerSelection == 'paper'){ ++score.computer, choicePara.textContent = "You lose! Scissors snips Paper. 😭"}
+            else if(playerSelection == 'scissors'){ choicePara.textContent = "It's a Tie! - Scissors vs. Scissors.. 😐"}
             else{return "Error, not a valid input."}
         };
         break
         case null || undefined:{'Error!'};
     }; 
-    choicePara.textContent = `${playerSelection.toUpperCase()}` + ' vs. '+ `${computerSelection.toUpperCase()}`;
+    //choicePara.textContent = `${playerSelection.toUpperCase()}` + ' vs. '+ `${computerSelection.toUpperCase()}`;
     scorePara.textContent = `Your Score: ${score.player}` + " " + `Computer's score: ${score.computer}`;
-    counter(score.round);
+    counter(score.computer,score.player);
+    determineWin(isEndOfGame);
 };
