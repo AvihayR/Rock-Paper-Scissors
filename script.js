@@ -1,6 +1,9 @@
 //UI: 
-const scorePara = document.querySelector(".score-p");
+const userScorePara = document.querySelector(".user-score-p");
+const computerScorePara = document.querySelector(".computer-score-p");
 const choicePara = document.querySelector(".choices-p");
+const userWeaponDiv = document.querySelector("#user-weapon");
+const compWeaponDiv = document.querySelector("comp-weapon");
 const buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
     btn.addEventListener('click', playRound);
@@ -48,33 +51,38 @@ function playRound(playerSelection,computerSelection){
     ++score.round
     playerSelection = this.value;
     computerSelection = getComputerChoice();
+    let userWeapon = document.querySelector(`.${playerSelection}`).textContent;
+    let compWeapon = document.querySelector(`.${computerSelection}`).textContent;
     switch(computerSelection){
         case 'rock':{
-            if (playerSelection == 'rock'){ choicePara.textContent = "It's a tie! - Rock vs. Rock.. 😐"}
-            else if(playerSelection == 'paper'){ ++score.player , choicePara.textContent = "You win! Paper wraps Rock! 💪"}
-            else if(playerSelection == 'scissors'){ ++score.computer, choicePara.textContent = "You lose! Rock breaks Scissors. 😭"} 
+            if (playerSelection == 'rock'){ choicePara.textContent = "It's a tie! - Rock vs. Rock.. "}
+            else if(playerSelection == 'paper'){ ++score.player , choicePara.textContent = "You win! Paper wraps Rock! "}
+            else if(playerSelection == 'scissors'){ ++score.computer, choicePara.textContent = "You lose! Rock breaks Scissors. "} 
             else{ "Error, not a valid input."}
             
         };
         break;
         case 'paper':{
-            if(playerSelection == 'rock'){ ++score.computer,choicePara.textContent = "You lose! Paper wraps Rock. 😭"}
-            else if(playerSelection == 'paper'){ choicePara.textContent = "It's a tie! - Paper vs. Paper.. 😐"}
-            else if(playerSelection == 'scissors'){ ++score.player, choicePara.textContent = "You win! Scissors snips Paper! 💪"}
+            if(playerSelection == 'rock'){ ++score.computer,choicePara.textContent = "You lose! Paper wraps Rock. "}
+            else if(playerSelection == 'paper'){ choicePara.textContent = "It's a tie! - Paper vs. Paper.. "}
+            else if(playerSelection == 'scissors'){ ++score.player, choicePara.textContent = "You win! Scissors snips Paper! "}
             else{return "Error, not a valid input."}
         };
         break;
         case 'scissors':{
-            if(playerSelection == 'rock'){ ++score.player, choicePara.textContent = "You win! Rock breaks Scissors! 💪"}
-            else if(playerSelection == 'paper'){ ++score.computer, choicePara.textContent = "You lose! Scissors snips Paper. 😭"}
-            else if(playerSelection == 'scissors'){ choicePara.textContent = "It's a Tie! - Scissors vs. Scissors.. 😐"}
+            if(playerSelection == 'rock'){ ++score.player, choicePara.textContent = "You win! Rock breaks Scissors! "}
+            else if(playerSelection == 'paper'){ ++score.computer, choicePara.textContent = "You lose! Scissors snips Paper. "}
+            else if(playerSelection == 'scissors'){ choicePara.textContent = "It's a Tie! - Scissors vs. Scissors.. "}
             else{return "Error, not a valid input."}
         };
         break
         case null || undefined:{'Error!'};
     }; 
     //choicePara.textContent = `${playerSelection.toUpperCase()}` + ' vs. '+ `${computerSelection.toUpperCase()}`;
-    scorePara.textContent = `Your Score: ${score.player}` + " " + `Computer's score: ${score.computer}`;
+    userScorePara.textContent = `User: ${score.player}` ;
+    computerScorePara.textContent = `Computer: ${score.computer}` ;
+    
+    console.table(document.querySelector(`.${playerSelection}`).textContent)
     counter(score.computer,score.player);
     determineWin(isEndOfGame);
 };
