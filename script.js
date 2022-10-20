@@ -59,9 +59,9 @@ function playRound(playerSelection,computerSelection){
 
     switch(computerSelection){
         case 'rock':{
-            if (playerSelection == 'rock'){ choicePara.textContent = "It's a tie! - Rock vs. Rock..",userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon}
-            else if(playerSelection == 'paper'){ ++score.player ,choicePara.textContent = "You win! - Paper wraps Rock! ", userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon}
-            else if(playerSelection == 'scissors'){ ++score.computer, choicePara.textContent = "You lose! - Rock breaks Scissors. ",userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon} 
+            if (playerSelection == 'rock'){ choicePara.textContent = "It's a tie!  Rock vs. Rock..",userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon}
+            else if(playerSelection == 'paper'){ ++score.player ,choicePara.textContent = "You win!  Paper wraps Rock! ", userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon}
+            else if(playerSelection == 'scissors'){ ++score.computer, choicePara.textContent = "You lose!  Rock breaks Scissors. ",userChoiceP.textContent = userWeapon, computerChoiceP.textContent = compWeapon} 
             else{ "Error, not a valid input."}
             
         };
@@ -83,8 +83,8 @@ function playRound(playerSelection,computerSelection){
         case null || undefined:{'Error!'};
     }; 
     //choicePara.textContent = `${playerSelection.toUpperCase()}` + ' vs. '+ `${computerSelection.toUpperCase()}`;
-    userScorePara.textContent = `User: ${score.player}` ;
-    computerScorePara.textContent = `Computer: ${score.computer}` ;
+    userScorePara.textContent = `${score.player}` ;
+    computerScorePara.textContent = `${score.computer}` ;
 
     counter(score.computer,score.player);
     determineWin(isEndOfGame);
