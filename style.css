@@ -48,7 +48,7 @@ button{
     border-radius: 15px;
     margin: 10px;
     max-height: 150px;
-    box-shadow: 5px 4px rgb(55, 55, 55);
+    box-shadow: 9px 9px rgb(55, 55, 55);
 }
 
 #header{
@@ -99,27 +99,38 @@ button{
 .card-container{
     display: flex;
     flex: 1;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-evenly;
     padding: 15px;
+    background-color: rgb(55,55,55);
+    box-shadow: 4px 5px rgb(38, 38, 38);
+    border-radius: 17px;
+    margin-bottom: 22px;
 }
 
 .card-container p{
-    font-size: 52px;
     margin-bottom: 15px;
+    padding: 0px 10px;
+}
+
+#user-identifier{
+    padding-left:25px ;
+}
+#vs{
+    font-size: 60px;
 }
 
 .card{
     padding: 22px;
     margin: 15px;
-    border: 2px solid rgb(55,55,55);
-    box-shadow: 2px 2px rgb(55, 55, 55);
     border-radius: 12px;
+    
 
 }
 
 p.weapon{
     font-size: 65px;
+    text-shadow: 1px 1px 55px  rgb(42, 42, 42);
 }
 
 .btn-container{
