@@ -1,12 +1,8 @@
 
 body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
-    /*display: flex;*/
-    /*flex-direction: column;*/
     margin: 0; 
-    /*min-height: 100vh;*/
     box-sizing: border-box;
-    /*flex: 1;*/
     align-items: center;
     background-color: rgb(70, 70, 70);
     color: rgb(219, 219, 219);
@@ -60,9 +56,22 @@ button{
     padding: 10px;
 }
 
+.rock-span{
+    color: silver;
+    text-shadow: 1px 4px 40px  rgb(152, 152, 152);
+}
+.paper-span{
+    color: rgb(214, 191, 142);
+    text-shadow: 1px 4px 40px  rgb(208, 202, 185);
+}
+.scissors-span{
+    color: rgb(207, 42, 42);
+    text-shadow: 1px 4px 35px  rgb(167, 72, 72);
+}
+
+
 #info{
     padding: 7px;
-    text-shadow: 1px 2px 15px;
 }
 
 .main-game{
@@ -98,7 +107,9 @@ button{
     margin-top: 15px;
 }
 
-
+.score-p{
+    font-size: 34px;
+}
 
 .card-container{
     display: flex;
@@ -115,6 +126,15 @@ button{
 .card-container p{
     margin-bottom: 15px;
     padding: 0px 10px;
+}
+
+.score-h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 37px;
+    font-style:under-line;
+    font-weight: lighter;
 }
 
 #user-identifier{
@@ -157,4 +177,21 @@ p.weapon{
 .btn-container{
     display: flex;
     justify-content: space-between;
+    border: 3px solid rgb(38, 38, 38);
+    height: 140px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgb(41, 41, 41);
+}
+
+.btn-container button{
+    font-size: 85px;
+    padding: 18px;
+}
+
+hr.btn-divider{
+    border: none;
+    border-right: 4px dashed rgb(38, 38, 38);
+    height: 120px;
+    font-weight: lighter;
+    text-decoration: none;
 }

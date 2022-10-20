@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-            <h1 id="header">Rock Paper Scissors</h1>
+            <h1 id="header"> <span class="rock-span">Rock</span> <span class="paper-span"> Paper</span> <span class="scissors-span">Scissors</span></h1>
             <p id="info">Pick your weapon!</p>
  
         
@@ -32,10 +32,12 @@
                         </div>
                         </div>
                         <hr class="divider">
+                        <h1 class="score-h1">Score</h1>
                         <div class="score">
                             <p id="user-score-p" class="score-p user-score-p">User: 0</p>
                             <p id="pc-score-p" class="score-p computer-score-p">Computer: 0</p>
                         </div>
+                    
                     </div>
                     <p class="choices-p"></p>
                 </div>
@@ -43,8 +45,10 @@
 
         </div>
         <div class="btn-container">
-            <button value="rock" class="rock">🪨</button>
+                <button value="rock" class="rock">🪨</button>
+            <hr class="btn-divider">
                 <button value="paper" class="paper">📜</button>
+            <hr class="btn-divider">
                 <button value="scissors" class="scissors">✂️</button>
             </div>
         
