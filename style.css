@@ -111,6 +111,10 @@ button{
     font-size: 34px;
 }
 
+.choices-p{
+    padding: 15px;
+}
+
 .card-container{
     display: flex;
     flex: 1;
@@ -211,7 +215,7 @@ hr.btn-divider{
     display: flex;
     justify-content: center;
     padding: 15px;
-    margin-top: 19px;
+    margin-top: 28px;
     border: 1px solid black;
     font-weight: lighter;
     opacity: 0.81;
