@@ -207,3 +207,19 @@ hr.btn-divider{
     text-decoration: none;
 }
 
+.footer{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 19px;
+    border: 1px solid black;
+    font-weight: lighter;
+    opacity: 0.81;
+    background-color: rgb(38, 38, 38);
+}
+
+a{
+    text-decoration: none;
+    color: wheat;
+}
+
