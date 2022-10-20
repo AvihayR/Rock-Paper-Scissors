@@ -186,6 +186,17 @@ p.weapon{
 .btn-container button{
     font-size: 85px;
     padding: 18px;
+    transition: 0.4s;
+}
+
+.btn-container button:hover{
+    text-shadow: 2px 2px 9px black;
+    opacity: 0.6;
+}
+
+.btn-container button:active{
+    opacity: 1;
+    text-shadow: none;
 }
 
 hr.btn-divider{
@@ -195,3 +206,4 @@ hr.btn-divider{
     font-weight: lighter;
     text-decoration: none;
 }
+
