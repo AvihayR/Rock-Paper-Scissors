@@ -1,8 +1,4 @@
 
-html {
-    
-  }
-
 body{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
     margin: 0; 
@@ -87,7 +83,7 @@ button{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 0;
+    flex:1;
     max-width: 100%;
 }
 
@@ -96,7 +92,7 @@ button{
     margin: 1.8rem 0 1.5rem 0;
     display: flex;
     flex-direction: column;
-    flex-grow: 0;
+    flex: 1;
     justify-content: center;
     max-width: 100%;
 }
@@ -113,7 +109,7 @@ button{
     display: flex;
     justify-content: space-between;
     padding: 0 17%;
-    margin-top: 15px;
+    margin: 8% 0;
 }
 
 .score-p{
@@ -128,19 +124,14 @@ button{
     display: flex;
     flex-direction: column;
     align-items: space-between;
-   /* padding: 5% 8%;*/
+    padding: 5% 8%;
     background-color: rgb(55,55,55);
     box-shadow: 5px 5px 5px rgb(38, 38, 38);
     border-radius: 17px;
-    margin-bottom: 22px;
+    margin-bottom: 1vw;
     max-width: 100%;
     flex: 1;
 
-}
-
-.card-container p{
-    margin-bottom: 15px;
-    padding: 0px 10px;
 }
 
 .score-h1{
@@ -148,17 +139,20 @@ button{
     flex-direction: column;
     align-items: center;
     font-size: 37px;
-    font-style:under-line;
     font-weight: lighter;
 }
 
-#user-identifier{
-    padding-left:25% ;
+.identity{
+    display: flex;
+    font-size: 1.2rem;
+    padding: 7%;
+    margin-bottom: 10%;
 }
 
+
 #vs{
-    font-size: max(2vw, 60px);
-    padding-top: 10px;
+    font-size: max(2vw, 40px);
+    margin-top: 50%;
 }
 
 .cards{
@@ -166,16 +160,21 @@ button{
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    flex-grow: 0;
-    padding: 2rem;
+    flex: 1;
 }
 
 .card{
-    padding: 1rem;
-    margin: 0.5rem;
+    padding: 1.2vw;
+    margin: 0 1rem ;
     border-radius: 12px;
-    max-width: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
 }
+
 
 
 hr.divider{
@@ -190,9 +189,10 @@ hr.divider{
 
 p.weapon{
     /*font-size: 65px;*/
-    font-size: max(3vw, 67px);
+    font-size: max(2vw, 4rem);
     text-shadow: 1px 1px 55px  rgb(42, 42, 42);
 }
+
 
 .btn-container{
     display: flex;
